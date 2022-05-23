@@ -1,3 +1,3 @@
-package weui.common
+package weui.sample
 
 expect fun getPlatformName(): String

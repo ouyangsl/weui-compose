@@ -1,6 +1,6 @@
 package weui.android
 
-import weui.common.App
+import weui.sample.App
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity

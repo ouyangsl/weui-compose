@@ -1,4 +1,4 @@
-package weui.common
+package weui.sample
 
 import androidx.compose.material.Text
 import androidx.compose.material.Button

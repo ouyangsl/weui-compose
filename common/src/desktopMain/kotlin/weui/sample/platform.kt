@@ -1,5 +1,5 @@
-package weui.common
+package weui.sample
 
 actual fun getPlatformName(): String {
-    return "Android"
+    return "Desktop"
 }
