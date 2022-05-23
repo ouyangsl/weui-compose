@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
  * @property warn 普通警告，用于表示操作后将引起一定后果的情况
  * @property error 强烈警告，用于表示操作引起严重的不可挽回的后果的情况
  * @property wait 等待，用于表示等待
+ * @property link 链接颜色
  * @property background 背景色，用于底层容器背景颜色
  * @property surface 表面色，用于放置于底层容器之上的表层容器的背景颜色
  * @property divider 分割线颜色，用于部件之间的分割线的颜色
@@ -27,6 +28,7 @@ class WeUIColors(
     warn: Color,
     error: Color,
     wait: Color,
+    link: Color,
     background: Color,
     surface: Color,
     divider: Color,
@@ -44,6 +46,8 @@ class WeUIColors(
         internal set
     var wait by mutableStateOf(wait, structuralEqualityPolicy())
         internal set
+    var link by mutableStateOf(link, structuralEqualityPolicy())
+        internal set
     var background by mutableStateOf(background, structuralEqualityPolicy())
         internal set
     var surface by mutableStateOf(surface, structuralEqualityPolicy())
@@ -60,12 +64,13 @@ class WeUIColors(
         warn: Color = this.warn,
         error: Color = this.error,
         wait: Color = this.wait,
+        link: Color = this.link,
         background: Color = this.background,
         surface: Color = this.surface,
         divider: Color = this.divider,
         isLight: Boolean = this.isLight
     ): WeUIColors = WeUIColors(
-        brand, success, tip, warn, error, wait, background, surface, divider, isLight
+        brand, success, tip, warn, error, wait, link, background, surface, divider, isLight
     )
 
     override fun toString(): String {
@@ -76,6 +81,7 @@ class WeUIColors(
                 "warn=$warn" +
                 "error=$error" +
                 "wait=$wait" +
+                "link=$link" +
                 "background=$background" +
                 "surface=$surface" +
                 "divider=$divider" +
@@ -91,12 +97,13 @@ fun lightWeUIColors(
     warn: Color = Color(0xFFFFC300),
     error: Color = Color(0xFFFA5151),
     wait: Color = Color(0xFF10AEFF),
+    link: Color = Color(0xFF576B95),
     background: Color = Color(0xFFF7F7F7),
     surface: Color = Color.White,
     divider: Color = Color(0x1A000000),
     isLight: Boolean = true
 ): WeUIColors = WeUIColors(
-    brand, success, tip, warn, error, wait, background, surface, divider, isLight
+    brand, success, tip, warn, error, wait, link, background, surface, divider, isLight
 )
 
 fun darkWeUIColors(
@@ -106,12 +113,13 @@ fun darkWeUIColors(
     warn: Color = Color(0xFFFFC300),
     error: Color = Color(0xFFFA5151),
     wait: Color = Color(0xFF10AEFF),
+    link: Color = Color(0xFF576B95),
     background: Color = Color.Black,
     surface: Color = Color(0xFF1E1E1E),
     divider: Color = Color.White.copy(alpha = 0.05f),
     isLight: Boolean = false
 ): WeUIColors = WeUIColors(
-    brand, success, tip, warn, error, wait, background, surface, divider, isLight
+    brand, success, tip, warn, error, wait, link, background, surface, divider, isLight
 )
 
 internal val LocalWeUIColors = staticCompositionLocalOf { lightWeUIColors() }
