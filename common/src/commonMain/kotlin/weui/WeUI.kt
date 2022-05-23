@@ -16,3 +16,7 @@ fun WeUI(
         content = content
     )
 }
+
+object WeUI {
+    object Colors
+}

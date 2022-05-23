@@ -9,9 +9,19 @@ import weui.WeUITheme
  */
 @Stable
 interface ButtonColors {
+    /**
+     * 背景颜色
+     *
+     * @param enabled 按钮是否可用
+     */
     @Composable
     fun backgroundColor(enabled: Boolean): State<Color>
 
+    /**
+     * 内容颜色
+     *
+     * @param enabled 按钮是否可用
+     */
     @Composable
     fun contentColor(enabled: Boolean): State<Color>
 }
@@ -37,6 +47,9 @@ private data class ButtonColorsImpl(
 private val DisabledBackgroundColor = Color(0xFFF2F2F2)
 private val DisabledContentColor = Color.Black.copy(alpha = 0.18f)
 
+/**
+ * 强调按钮颜色
+ */
 object PrimaryButtonColors : ButtonColors {
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> {
@@ -54,61 +67,96 @@ object PrimaryButtonColors : ButtonColors {
 }
 
 /**
- * 强调按钮颜色
- */
-//val PrimaryButtonColors: ButtonColors by lazy {
-//    ButtonColorsImpl(
-//        backgroundColor = WeUITheme.colors.brand,
-//        contentColor = Color.White,
-//        disabledBackgroundColor = Color(0xFFF2F2F2),
-//        disabledContentColor = Color.Black.copy(alpha = 0.18f)
-//    )
-//}
-
-/**
  * 弱化按钮颜色
  */
-//val DefaultButtonColors: ButtonColors by lazy {
-//    ButtonColorsImpl(
-//        backgroundColor = Color(0xFFF2F2F2),
-//        contentColor = WeUITheme.colors.brand,
-//        disabledBackgroundColor = Color(0xFFF2F2F2),
-//        disabledContentColor = Color.Black.copy(alpha = 0.18f)
-//    )
-//}
-//
-///**
-// * 警示按钮颜色
-// */
-//val WarnButtonColors: ButtonColors by lazy {
-//    ButtonColorsImpl(
-//        backgroundColor = Color(0xFFF2F2F2),
-//        contentColor = WeUITheme.colors.warn,
-//        disabledBackgroundColor = Color(0xFFF2F2F2),
-//        disabledContentColor = Color.Black.copy(alpha = 0.18f)
-//    )
-//}
-//
-///**
-// * 强调行按钮颜色
-// */
-//val PrimaryCellButtonColors: ButtonColors by lazy {
-//    ButtonColorsImpl(
-//        backgroundColor = WeUITheme.colors.surface,
-//        contentColor = WeUITheme.colors.link,
-//        disabledBackgroundColor = Color(0xFFF2F2F2),
-//        disabledContentColor = Color.Black.copy(alpha = 0.18f)
-//    )
-//}
-//
-///**
-// * 弱化行按钮颜色
-// */
-//val DefaultCellButtonColors: ButtonColors by lazy {
-//    ButtonColorsImpl(
-//        backgroundColor = WeUITheme.colors.surface,
-//        contentColor = Color.White,
-//        disabledBackgroundColor = Color(0xFFF2F2F2),
-//        disabledContentColor = Color.Black.copy(alpha = 0.18f)
-//    )
-//}
+object DefaultButtonColors : ButtonColors {
+    @Composable
+    override fun backgroundColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            if (enabled) Color(0xFFF2F2F2) else DisabledBackgroundColor
+        )
+    }
+
+    @Composable
+    override fun contentColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            if (enabled) WeUITheme.colors.brand else DisabledContentColor
+        )
+    }
+}
+
+/**
+ * 警示按钮颜色
+ */
+object WarnButtonColors : ButtonColors {
+    @Composable
+    override fun backgroundColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            if (enabled) Color(0xFFF2F2F2) else DisabledBackgroundColor
+        )
+    }
+
+    @Composable
+    override fun contentColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            if (enabled) WeUITheme.colors.error else DisabledContentColor
+        )
+    }
+}
+
+/**
+ * 强调行按钮颜色
+ */
+object PrimaryCellButtonColors : ButtonColors {
+    @Composable
+    override fun backgroundColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            if (enabled) WeUITheme.colors.surface else DisabledBackgroundColor
+        )
+    }
+
+    @Composable
+    override fun contentColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            if (enabled) WeUITheme.colors.link else DisabledContentColor
+        )
+    }
+}
+
+/**
+ * 普通行按钮颜色
+ */
+object DefaultCellButtonColors : ButtonColors {
+    @Composable
+    override fun backgroundColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            if (enabled) WeUITheme.colors.surface else DisabledBackgroundColor
+        )
+    }
+
+    @Composable
+    override fun contentColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            if (enabled) Color.Black else DisabledContentColor
+        )
+    }
+}
+
+/**
+ * 警示行按钮颜色
+ */
+object WarnCellButtonColors : ButtonColors {
+    @Composable
+    override fun backgroundColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            if (enabled) Color.White else DisabledBackgroundColor
+        )
+    }
+
+    @Composable
+    override fun contentColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            if (enabled) WeUITheme.colors.error else DisabledContentColor
+        )
+    }
+}
