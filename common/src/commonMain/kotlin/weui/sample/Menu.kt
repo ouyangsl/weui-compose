@@ -43,7 +43,7 @@ enum class Menu(
     Icons(title = "图标", available = false),
     Loading(title = "加载中", available = false),
     LoadMore(title = "加载更多", available = false),
-    Panel(title = "面板", available = false),
+    Panel(title = "面板", available = true),
     Preview(title = "表单预览", available = false),
     Progress(title = "进度条", available = true),
     Steps(title = "步骤条", available = false),
