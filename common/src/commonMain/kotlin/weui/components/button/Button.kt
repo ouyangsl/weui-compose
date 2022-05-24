@@ -47,7 +47,7 @@ fun Button(
     text: String,
     modifier: Modifier = Modifier,
     type: ButtonType = ButtonType.Default,
-    colors: ButtonColors = PrimaryButtonColors,
+    colors: ButtonColors = DefaultButtonColors,
     enabled: Boolean = true,
     onClick: () -> Unit
 ) {

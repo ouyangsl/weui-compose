@@ -45,7 +45,7 @@ enum class Menu(
     LoadMore(title = "加载更多", available = false),
     Panel(title = "面板", available = false),
     Preview(title = "表单预览", available = false),
-    Progress(title = "进度条", available = false),
+    Progress(title = "进度条", available = true),
     Steps(title = "步骤条", available = false),
 }
 
@@ -155,7 +155,7 @@ private fun MenuGroup(
                 verticalArrangement = Arrangement.spacedBy(1.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(WeUITheme.colors.background)
+                    .background(WeUITheme.colors.divider)
             ) {
                 for (menu in menus) {
                     Row(
