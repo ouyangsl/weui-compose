@@ -5,10 +5,8 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
@@ -90,8 +88,7 @@ fun MenuGroups(
 
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = modifier.padding(10.dp)
-            .verticalScroll(rememberScrollState())
+        modifier = modifier
     ) {
         for (group in MenuGroups) {
             MenuGroup(
@@ -124,21 +121,33 @@ private fun MenuGroup(
     val animatedAlpha = animateFloatAsState(
         targetValue = alpha.value
     )
+    val availableCount = menus.count { it.available }
 
     Column(
         modifier = modifier.background(WeUITheme.colors.surface)
     ) {
-        BasicText(
-            text = title,
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .alpha(animatedAlpha.value)
                 .fillMaxWidth()
                 .clickable { onExpandChange(!expanded) }
-                .padding(15.dp),
-            style = TextStyle(
-                fontSize = 14.sp
+                .padding(15.dp)
+        ) {
+            BasicText(
+                text = title,
+                style = TextStyle(
+                    fontSize = 14.sp
+                )
             )
-        )
+
+            if (availableCount > 0) {
+                Available(
+                    text = "$availableCount/${menus.size}",
+                    modifier = Modifier.padding(5.dp)
+                )
+            }
+        }
 
         AnimatedVisibility(visible = expanded) {
             Column(
@@ -162,16 +171,9 @@ private fun MenuGroup(
                         BasicText(text = menu.name)
 
                         if (menu.available) {
-                            BasicText(
+                            Available(
                                 text = "Available",
-                                style = TextStyle(color = Color.White),
-                                modifier = Modifier
-                                    .padding(5.dp)
-                                    .background(
-                                        color = WeUITheme.colors.success,
-                                        shape = RoundedCornerShape(2.dp)
-                                    )
-                                    .padding(2.dp)
+                                modifier = Modifier.padding(5.dp)
                             )
                         }
                     }
@@ -180,3 +182,21 @@ private fun MenuGroup(
         }
     }
 }
+
+/**
+ * 功能可用性标签
+ */
+@Composable
+private fun Available(
+    text: String,
+    modifier: Modifier = Modifier
+) = BasicText(
+    text = text,
+    style = TextStyle(color = Color.White),
+    modifier = modifier
+        .background(
+            color = WeUITheme.colors.success,
+            shape = RoundedCornerShape(2.dp)
+        )
+        .padding(2.dp)
+)
