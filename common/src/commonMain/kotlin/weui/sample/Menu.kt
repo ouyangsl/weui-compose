@@ -23,29 +23,30 @@ import weui.WeUITheme
  * 菜单项
  */
 enum class Menu(
+    val title: String,
     val available: Boolean
 ) {
     // 表单
-    Button(available = true),
-    Form(available = false),
-    List(available = false),
-    Slide(available = false),
-    Uploader(available = false),
+    Button(title = "按钮", available = true),
+    Form(title = "表单页", available = false),
+    List(title = "列表", available = false),
+    Slide(title = "滑块", available = false),
+    Uploader(title = "上传组件", available = false),
 
     // 基础组件
-    Article(available = false),
-    Badge(available = false),
-    Flex(available = false),
-    Footer(available = false),
-    Gallery(available = false),
-    Grid(available = false),
-    Icons(available = false),
-    Loading(available = false),
-    LoadMore(available = false),
-    Panel(available = false),
-    Preview(available = false),
-    Progress(available = false),
-    Steps(available = false),
+    Article(title = "文章", available = false),
+    Badge(title = "徽章", available = false),
+    Flex(title = "Flex布局", available = false),
+    Footer(title = "页脚", available = false),
+    Gallery(title = "图册", available = false),
+    Grid(title = "九宫格", available = false),
+    Icons(title = "图标", available = false),
+    Loading(title = "加载中", available = false),
+    LoadMore(title = "加载更多", available = false),
+    Panel(title = "面板", available = false),
+    Preview(title = "表单预览", available = false),
+    Progress(title = "进度条", available = false),
+    Steps(title = "步骤条", available = false),
 }
 
 /**
