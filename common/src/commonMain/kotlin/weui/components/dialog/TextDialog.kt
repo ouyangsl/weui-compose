@@ -75,7 +75,7 @@ private fun BasicDialogContent(
     content: @Composable ColumnScope.() -> Unit
 ) = Column(
     horizontalAlignment = Alignment.CenterHorizontally,
-    modifier = modifier.clip(WeUITheme.shapes.dialogCenter).width(320.dp).background(WeUITheme.colors.background),
+    modifier = modifier.clip(WeUITheme.shapes.dialogCenter).width(320.dp).background(WeUITheme.colors.surface),
     content = content
 )
 
