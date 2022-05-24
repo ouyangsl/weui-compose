@@ -17,6 +17,6 @@ fun WeUI(
     )
 }
 
-object WeUI {
-    object Colors
-}
+//object WeUI {
+//    object Colors
+//}
