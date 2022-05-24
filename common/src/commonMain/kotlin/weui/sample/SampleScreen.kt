@@ -10,6 +10,7 @@ import weui.sample.button.ButtonSampleScreen
 import weui.sample.dialog.DialogSampleScreen
 import weui.sample.dialog.TopTipsSampleScreen
 import weui.sample.footer.FooterSampleScreen
+import weui.sample.navigation.TabBarSampleScreen
 import weui.sample.progress.ProgressSampleScreen
 
 /**
@@ -29,6 +30,7 @@ fun SampleScreen(
             Menu.Footer -> FooterSampleScreen(sampleModifier)
             Menu.Dialog -> DialogSampleScreen(sampleModifier)
             Menu.TopTips -> TopTipsSampleScreen(sampleModifier)
+            Menu.TabBar -> TabBarSampleScreen(sampleModifier)
             null -> NullSampleScreen(sampleModifier)
             else -> NotAvailableSampleScreen(sampleModifier)
         }

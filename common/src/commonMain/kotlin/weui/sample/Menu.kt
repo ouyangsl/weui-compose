@@ -55,7 +55,17 @@ enum class Menu(
     Msg(title = "提示页", available = false),
     Picker(title = "多列选择器", available = false),
     Toast(title = "弹出式提示", available = false),
-    TopTips(title = "顶部提示条", available = true)
+    TopTips(title = "顶部提示条", available = true),
+
+    // 导航相关
+    NavBar(title = "底部导航条", available = false),
+    TabBar(title = "表头导航条", available = true),
+
+    // 搜索相关
+    SearchBar(title = "搜索栏", available = false),
+
+    // 层级规范
+    Layer(title = "层级规范", available = false)
 }
 
 /**
@@ -92,6 +102,16 @@ private val MenuGroups = mapOf(
         Menu.Picker,
         Menu.Toast,
         Menu.TopTips
+    ),
+    "导航相关" to listOf(
+        Menu.NavBar,
+        Menu.TabBar
+    ),
+    "搜索相关" to listOf(
+        Menu.SearchBar
+    ),
+    "层级规范" to listOf(
+        Menu.Layer
     )
 )
 

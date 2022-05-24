@@ -20,8 +20,8 @@ import weui.theme.WeUITheme
 fun App() {
     val platformName = getPlatformName()
 
-    var selected by remember { mutableStateOf<Menu?>(null) }
-//    var selected by remember { mutableStateOf<Menu?>(Menu.Footer) }
+//    var selected by remember { mutableStateOf<Menu?>(null) }
+    var selected by remember { mutableStateOf<Menu?>(Menu.TabBar) }
 
     WeUITheme {
         Row(
