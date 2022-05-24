@@ -6,13 +6,16 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -21,28 +24,30 @@ import weui.WeUITheme
 /**
  * 菜单项
  */
-enum class Menu {
+enum class Menu(
+    val available: Boolean
+) {
     // 表单
-    Button,
-    Form,
-    List,
-    Slide,
-    Uploader,
+    Button(available = true),
+    Form(available = false),
+    List(available = false),
+    Slide(available = false),
+    Uploader(available = false),
 
     // 基础组件
-    Article,
-    Badge,
-    Flex,
-    Footer,
-    Gallery,
-    Grid,
-    Icons,
-    Loading,
-    LoadMore,
-    Panel,
-    Preview,
-    Progress,
-    Steps
+    Article(available = false),
+    Badge(available = false),
+    Flex(available = false),
+    Footer(available = false),
+    Gallery(available = false),
+    Grid(available = false),
+    Icons(available = false),
+    Loading(available = false),
+    LoadMore(available = false),
+    Panel(available = false),
+    Preview(available = false),
+    Progress(available = false),
+    Steps(available = false),
 }
 
 /**
@@ -144,6 +149,7 @@ private fun MenuGroup(
             ) {
                 for (menu in menus) {
                     Row(
+                        verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .fillMaxWidth()
                             .background(WeUITheme.colors.surface)
@@ -154,6 +160,20 @@ private fun MenuGroup(
                             )
                     ) {
                         BasicText(text = menu.name)
+
+                        if (menu.available) {
+                            BasicText(
+                                text = "Available",
+                                style = TextStyle(color = Color.White),
+                                modifier = Modifier
+                                    .padding(5.dp)
+                                    .background(
+                                        color = WeUITheme.colors.success,
+                                        shape = RoundedCornerShape(2.dp)
+                                    )
+                                    .padding(2.dp)
+                            )
+                        }
                     }
                 }
             }

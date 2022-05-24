@@ -25,11 +25,18 @@ fun App() {
             modifier = Modifier.background(WeUITheme.colors.background)
         ) {
             MenuGroups(
-                modifier = Modifier.weight(1f).fillMaxHeight(),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 onMenuClick = {}
             )
 
-            Box(modifier = Modifier.weight(3f).fillMaxHeight()) {
+            Box(
+                modifier = Modifier
+                    .weight(3f)
+                    .fillMaxHeight()
+                    .padding(16.dp)
+            ) {
                 ButtonSampleScreen()
             }
         }
