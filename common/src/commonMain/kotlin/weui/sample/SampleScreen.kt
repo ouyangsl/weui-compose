@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import weui.sample.button.ButtonSampleScreen
 import weui.sample.dialog.DialogSampleScreen
+import weui.sample.dialog.TopTipsSampleScreen
 import weui.sample.progress.ProgressSampleScreen
 
 /**
@@ -25,6 +26,7 @@ fun SampleScreen(
             Menu.Button -> ButtonSampleScreen(sampleModifier)
             Menu.Progress -> ProgressSampleScreen(sampleModifier)
             Menu.Dialog -> DialogSampleScreen(sampleModifier)
+            Menu.TopTips -> TopTipsSampleScreen(sampleModifier)
             null -> NullSampleScreen(sampleModifier)
             else -> NotAvailableSampleScreen(sampleModifier)
         }

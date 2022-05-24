@@ -55,7 +55,7 @@ enum class Menu(
     Msg(title = "提示页", available = false),
     Picker(title = "多列选择器", available = false),
     Toast(title = "弹出式提示", available = false),
-    TopTips(title = "顶部提示条", available = false)
+    TopTips(title = "顶部提示条", available = true)
 }
 
 /**
