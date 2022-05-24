@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import weui.WeUITheme
+import weui.theme.WeUITheme
 
 /**
  * 菜单项
@@ -47,6 +47,15 @@ enum class Menu(
     Preview(title = "表单预览", available = false),
     Progress(title = "进度条", available = true),
     Steps(title = "步骤条", available = false),
+
+    // 操作反馈
+    ActionSheet(title = "弹出式菜单", available = false),
+    Dialog(title = "对话框", available = true),
+    HalfScreenDialog(title = "半屏组件", available = false),
+    Msg(title = "提示页", available = false),
+    Picker(title = "多列选择器", available = false),
+    Toast(title = "弹出式提示", available = false),
+    TopTips(title = "顶部提示条", available = false)
 }
 
 /**
@@ -74,6 +83,15 @@ private val MenuGroups = mapOf(
         Menu.Preview,
         Menu.Progress,
         Menu.Steps
+    ),
+    "操作反馈" to listOf(
+        Menu.ActionSheet,
+        Menu.Dialog,
+        Menu.HalfScreenDialog,
+        Menu.Msg,
+        Menu.Picker,
+        Menu.Toast,
+        Menu.TopTips
     )
 )
 

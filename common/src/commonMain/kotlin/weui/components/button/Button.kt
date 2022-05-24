@@ -3,21 +3,14 @@ package weui.components.button
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-
-private val DefaultButtonShape = RoundedCornerShape(8.dp)
-private val CellButtonShape = RectangleShape
+import weui.theme.WeUITheme
 
 /**
  * 按钮类型
@@ -27,11 +20,14 @@ enum class ButtonType {
     Cell      // 行按钮
 }
 
-private val ButtonType.shape: Shape
-    get() = when (this) {
-        ButtonType.Default -> DefaultButtonShape
-        ButtonType.Cell -> CellButtonShape
-    }
+/**
+ * 按钮样式
+ */
+enum class ButtonStyle {
+    Primary, // 主要操作
+    Default, // 次要操作
+    Warn     // 警示操作
+}
 
 private val ButtonType.fontWeight: FontWeight
     get() = when (this) {
@@ -47,16 +43,35 @@ fun Button(
     text: String,
     modifier: Modifier = Modifier,
     type: ButtonType = ButtonType.Default,
-    colors: ButtonColors = DefaultButtonColors,
+    style: ButtonStyle = ButtonStyle.Default,
     enabled: Boolean = true,
     onClick: () -> Unit
 ) {
+    val colors = when (type) {
+        ButtonType.Default -> {
+            when (style) {
+                ButtonStyle.Primary -> PrimaryButtonColors
+                ButtonStyle.Default -> DefaultButtonColors
+                ButtonStyle.Warn -> WarnButtonColors
+            }
+        }
+        ButtonType.Cell -> when (style) {
+            ButtonStyle.Primary -> PrimaryCellButtonColors
+            ButtonStyle.Default -> DefaultCellButtonColors
+            ButtonStyle.Warn -> WarnCellButtonColors
+        }
+    }
+
     val backgroundColor = colors.backgroundColor(enabled).value
+    val shape = when (type) {
+        ButtonType.Default -> WeUITheme.shapes.buttonDefault
+        ButtonType.Cell -> WeUITheme.shapes.buttonCell
+    }
 
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
-            .clip(type.shape)
+            .clip(shape)
             .clickable(
                 enabled = enabled,
                 onClick = onClick
@@ -71,11 +86,11 @@ fun Button(
         Row(
             horizontalArrangement = Arrangement.spacedBy(5.dp)
         ) {
+
             BasicText(
                 text = text,
-                style = TextStyle(
+                style = WeUITheme.typography.button.copy(
                     color = colors.contentColor(enabled).value,
-                    fontSize = 17.sp,
                     fontWeight = type.fontWeight
                 )
             )

@@ -2,7 +2,7 @@ package weui.components.button
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
-import weui.WeUITheme
+import weui.theme.WeUITheme
 
 /**
  * 按钮颜色

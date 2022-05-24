@@ -14,8 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import weui.WeUI
-import weui.WeUITheme
+import weui.theme.WeUITheme
 
 @Composable
 fun App() {
@@ -23,7 +22,7 @@ fun App() {
 
     var selected by remember { mutableStateOf<Menu?>(null) }
 
-    WeUI {
+    WeUITheme {
         Row(
             horizontalArrangement = Arrangement.spacedBy(10.dp),
             modifier = Modifier.background(WeUITheme.colors.background)

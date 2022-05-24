@@ -24,55 +24,55 @@ fun ButtonSampleScreen(
     ) {
         Button(
             text = "主要操作",
-            colors = PrimaryButtonColors
+            style = ButtonStyle.Primary,
         ) {}
 
         Button(
             text = "主要操作",
-            colors = PrimaryButtonColors,
+            style = ButtonStyle.Primary,
             enabled = false
         ) {}
 
         Button(
             text = "次要操作",
-            colors = DefaultButtonColors
+            style = ButtonStyle.Default,
         ) {}
 
         Button(
             text = "次要操作",
-            colors = DefaultButtonColors,
+            style = ButtonStyle.Default,
             enabled = false
         ) {}
 
         Button(
             text = "警示操作",
-            colors = WarnButtonColors
+            style = ButtonStyle.Warn,
         ) {}
 
         Button(
             text = "警示操作",
-            colors = WarnButtonColors,
+            style = ButtonStyle.Warn,
             enabled = false
         ) {}
 
         Button(
             text = "普通行按钮",
             type = ButtonType.Cell,
-            colors = DefaultCellButtonColors,
+            style = ButtonStyle.Default,
             modifier = Modifier.fillMaxWidth()
         ) {}
 
         Button(
             text = "强调行按钮",
             type = ButtonType.Cell,
-            colors = PrimaryCellButtonColors,
+            style = ButtonStyle.Primary,
             modifier = Modifier.fillMaxWidth()
         ) {}
 
         Button(
             text = "警示行按钮",
             type = ButtonType.Cell,
-            colors = WarnCellButtonColors,
+            style = ButtonStyle.Warn,
             modifier = Modifier.fillMaxWidth()
         ) {}
     }
