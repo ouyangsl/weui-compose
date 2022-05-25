@@ -1,4 +1,4 @@
-package weui
+package weui.core
 
 import androidx.compose.ui.unit.dp
 

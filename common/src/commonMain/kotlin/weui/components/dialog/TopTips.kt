@@ -14,7 +14,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import weui.CompactMaxWidth
+import weui.core.CompactMaxWidth
 import weui.theme.WeUI
 
 /**
