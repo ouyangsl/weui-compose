@@ -1,15 +1,13 @@
 package weui.components.navigation
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.BasicText
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import weui.components.badge.BadgeState
-import weui.components.badge.BadgedBox
 import weui.theme.WeUI
 
 /**
@@ -17,44 +15,44 @@ import weui.theme.WeUI
  */
 @Composable
 fun NavBar(
-    selected: Int,
-    count: Int,
-    badgeStates: (index: Int) -> BadgeState,
-    titles: @Composable (isSelected: Boolean, index: Int) -> Unit,
-    icons: @Composable (isSelected: Boolean, index: Int) -> Unit,
     modifier: Modifier = Modifier,
-    onItemSelected: (Int) -> Unit
+    content: @Composable RowScope.() -> Unit
+) = Row(
+    modifier = modifier
+        .background(WeUI.colors.divider)
+        .padding(top = 1.dp)
+        .background(WeUI.colors.surface)
+        .height(60.dp)
+        .selectableGroup(),
+    content = content
+)
+
+@Composable
+fun RowScope.NavItem(
+    selected: Boolean,
+    icon: @Composable () -> Unit,
+    title: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    onClick: () -> Unit
 ) {
-    Row(
-        modifier = modifier
-            .background(WeUI.colors.divider)
-            .padding(top = 1.dp)
-            .background(WeUI.colors.surface)
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = modifier.weight(1f)
+            .fillMaxHeight()
+            .selectable(
+                selected = selected,
+                onClick = onClick,
+                enabled = enabled
+            )
     ) {
-        for (index in 0 until count) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(3.dp)
+        ) {
+            icon()
 
-            val isSelected = index == selected
-
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .weight(1f)
-                    .height(60.dp)
-                    .clickable(onClick = { onItemSelected(index) })
-            ) {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(3.dp)
-                ) {
-                    BadgedBox(
-                        badgeStates(index)
-                    ) {
-                        icons(isSelected, index)
-                    }
-
-                    titles(isSelected, index)
-                }
-            }
+            title()
         }
     }
 }

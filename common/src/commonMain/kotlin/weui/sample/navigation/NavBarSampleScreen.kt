@@ -7,12 +7,15 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import weui.components.badge.BadgeState
+import weui.components.badge.BadgedBox
+import weui.components.badge.rememberBadgeState
 import weui.components.navigation.NavBar
+import weui.components.navigation.NavItem
 import weui.icons.filled.Contacts
 import weui.icons.filled.Discover
 import weui.icons.filled.Me
@@ -31,21 +34,8 @@ fun NavBarSampleScreen(
         WeUI.Icons.Filled.Discover,
         WeUI.Icons.Filled.Me
     )
-    val badgeStates = listOf(
-        mutableStateOf(BadgeState(visible = true, text = "")),
-        mutableStateOf(BadgeState(visible = true, text = "2")),
-        mutableStateOf(BadgeState(visible = true, text = "New"))
-    )
 
-    val states = mutableStateListOf(
-        BadgeState(visible = true, text = ""),
-        BadgeState(visible = true, text = "2"),
-        BadgeState(visible = true, text = "New")
-    )
-
-    LaunchedEffect(selected) {
-        badgeStates[selected].value = badgeStates[selected].value.copy(visible = false)
-    }
+    val badgeState by rememberBadgeState(visible = true, text = "New")
 
     Column(modifier = modifier) {
         Box(
@@ -58,37 +48,57 @@ fun NavBarSampleScreen(
             )
         }
 
-        NavBar(
-            selected = selected,
-            count = titles.size,
-            badgeStates = { badgeStates[it].value },
-            titles = { isSelected, index ->
-                BasicText(
-                    text = titles[index],
-                    style = if (isSelected) {
-                        TextStyle(
-                            color = WeUI.colors.brand,
-                            fontSize = 12.sp
-                        )
-                    } else {
-                        TextStyle(
-                            color = WeUI.typography.desc.color,
-                            fontSize = 12.sp
-                        )
-                    }
+        NavBar {
+            for (index in titles.indices) {
+                val isSelected = selected == index
+
+                NavItem(
+                    selected = isSelected,
+                    icon = {
+                        if (index == titles.lastIndex) {
+                            BadgedBox(badgeState) {
+                                Icon(isSelected, icons[index])
+                            }
+                        } else {
+                            Icon(isSelected, icons[index])
+                        }
+                    },
+                    title = { Title(isSelected, titles[index]) },
+                    onClick = { selected = index }
                 )
-            },
-            icons = { isSelected, index ->
-                Image(
-                    painter = rememberVectorPainter(icons[index]),
-                    colorFilter = ColorFilter.tint(
-                        if (isSelected) WeUI.colors.brand else WeUI.colors.divider
-                    ),
-                    contentDescription = null,
-                    modifier = Modifier.size(24.dp)
-                )
-            },
-            onItemSelected = { selected = it }
-        )
+            }
+        }
     }
 }
+
+@Composable
+private fun Icon(
+    selected: Boolean,
+    vector: ImageVector
+) = Image(
+    painter = rememberVectorPainter(vector),
+    colorFilter = ColorFilter.tint(
+        if (selected) WeUI.colors.brand else WeUI.colors.divider
+    ),
+    contentDescription = null,
+    modifier = Modifier.size(24.dp)
+)
+
+@Composable
+private fun Title(
+    selected: Boolean,
+    text: String
+) = BasicText(
+    text = text,
+    style = if (selected) {
+        TextStyle(
+            color = WeUI.colors.brand,
+            fontSize = 12.sp
+        )
+    } else {
+        TextStyle(
+            color = WeUI.typography.desc.color,
+            fontSize = 12.sp
+        )
+    }
+)
