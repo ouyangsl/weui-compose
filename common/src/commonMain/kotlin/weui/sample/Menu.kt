@@ -40,7 +40,7 @@ enum class Menu(
     Footer(title = "页脚", available = true),
     Gallery(title = "图册", available = false),
     Grid(title = "九宫格", available = false),
-    Icons(title = "图标", available = false),
+    Icons(title = "图标", available = true),
     Loading(title = "加载中", available = false),
     LoadMore(title = "加载更多", available = false),
     Panel(title = "面板", available = true),

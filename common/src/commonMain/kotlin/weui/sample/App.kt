@@ -22,7 +22,7 @@ fun App() {
     val platformName = getPlatformName()
 
 //    var selected by remember { mutableStateOf<Menu?>(null) }
-    var selected by remember { mutableStateOf<Menu?>(Menu.Panel) }
+    var selected by remember { mutableStateOf<Menu?>(Menu.Icons) }
 
     WeUITheme {
         Row(

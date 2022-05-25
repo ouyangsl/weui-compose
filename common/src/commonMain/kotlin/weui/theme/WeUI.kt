@@ -14,6 +14,7 @@ object WeUI {
     object Icons {
         object Filled
         object Outlined
+        object Default
     }
 
     val colors: WeUIColors
