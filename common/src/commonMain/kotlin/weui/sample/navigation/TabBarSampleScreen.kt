@@ -1,6 +1,7 @@
 package weui.sample.navigation
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.BasicText
@@ -20,14 +21,7 @@ fun TabBarSampleScreen(
         "选项一", "选项二", "选项三"
     )
 
-    Column(
-        verticalArrangement = Arrangement.spacedBy(
-            space = 50.dp,
-            alignment = Alignment.CenterVertically
-        ),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
-    ) {
+    Column(modifier = modifier) {
         TabBar(
             selected = selected,
             tabs = tabs,
@@ -36,9 +30,14 @@ fun TabBarSampleScreen(
             selected = it
         }
 
-        BasicText(
-            text = tabs[selected],
-            style = WeUI.typography.headline
-        )
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxWidth().weight(1f)
+        ) {
+            BasicText(
+                text = tabs[selected],
+                style = WeUI.typography.headline
+            )
+        }
     }
 }

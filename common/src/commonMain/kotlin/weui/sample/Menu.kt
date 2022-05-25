@@ -58,7 +58,7 @@ enum class Menu(
     TopTips(title = "顶部提示条", available = true),
 
     // 导航相关
-    NavBar(title = "底部导航条", available = false),
+    NavBar(title = "底部导航条", available = true),
     TabBar(title = "表头导航条", available = true),
 
     // 搜索相关

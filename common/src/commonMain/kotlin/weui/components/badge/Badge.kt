@@ -53,7 +53,7 @@ fun Badge(
     state: BadgeState,
     modifier: Modifier = Modifier
 ) {
-    val minSize = if (state.isPureTips) 8.dp else 18.dp
+    val minSize = if (state.isPureTips) 8.dp else 15.dp
     val scale = animateFloatAsState(if (state.visible) 1f else 0f)
 
     if (state.visible) {
