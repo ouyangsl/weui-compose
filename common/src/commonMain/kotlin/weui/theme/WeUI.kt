@@ -11,7 +11,10 @@ object WeUI {
     /**
      * 图标
      */
-    object Icons
+    object Icons {
+        object Filled
+        object Outlined
+    }
 
     val colors: WeUIColors
         @Composable
