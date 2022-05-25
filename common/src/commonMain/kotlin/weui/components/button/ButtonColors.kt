@@ -2,7 +2,7 @@ package weui.components.button
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
-import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 /**
  * 按钮颜色
@@ -54,7 +54,7 @@ object PrimaryButtonColors : ButtonColors {
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(
-            if (enabled) WeUITheme.colors.brand else DisabledBackgroundColor
+            if (enabled) WeUI.colors.brand else DisabledBackgroundColor
         )
     }
 
@@ -80,7 +80,7 @@ object DefaultButtonColors : ButtonColors {
     @Composable
     override fun contentColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(
-            if (enabled) WeUITheme.colors.brand else DisabledContentColor
+            if (enabled) WeUI.colors.brand else DisabledContentColor
         )
     }
 }
@@ -99,7 +99,7 @@ object WarnButtonColors : ButtonColors {
     @Composable
     override fun contentColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(
-            if (enabled) WeUITheme.colors.error else DisabledContentColor
+            if (enabled) WeUI.colors.error else DisabledContentColor
         )
     }
 }
@@ -111,14 +111,14 @@ object PrimaryCellButtonColors : ButtonColors {
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(
-            if (enabled) WeUITheme.colors.surface else DisabledBackgroundColor
+            if (enabled) WeUI.colors.surface else DisabledBackgroundColor
         )
     }
 
     @Composable
     override fun contentColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(
-            if (enabled) WeUITheme.colors.link else DisabledContentColor
+            if (enabled) WeUI.colors.link else DisabledContentColor
         )
     }
 }
@@ -130,7 +130,7 @@ object DefaultCellButtonColors : ButtonColors {
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(
-            if (enabled) WeUITheme.colors.surface else DisabledBackgroundColor
+            if (enabled) WeUI.colors.surface else DisabledBackgroundColor
         )
     }
 
@@ -156,7 +156,7 @@ object WarnCellButtonColors : ButtonColors {
     @Composable
     override fun contentColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(
-            if (enabled) WeUITheme.colors.error else DisabledContentColor
+            if (enabled) WeUI.colors.error else DisabledContentColor
         )
     }
 }

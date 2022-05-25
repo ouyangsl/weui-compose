@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import weui.components.navigation.TabBar
-import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 @Composable
 fun TabBarSampleScreen(
@@ -38,7 +38,7 @@ fun TabBarSampleScreen(
 
         BasicText(
             text = tabs[selected],
-            style = WeUITheme.typography.headline
+            style = WeUI.typography.headline
         )
     }
 }

@@ -10,7 +10,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 /**
  * 进度条
@@ -29,8 +29,8 @@ fun Progress(
     progress: Float,
     modifier: Modifier = Modifier,
     lineWidth: Dp = 3.dp,
-    backgroundColor: Color = WeUITheme.colors.divider,
-    foregroundColor: Color = WeUITheme.colors.success
+    backgroundColor: Color = WeUI.colors.divider,
+    foregroundColor: Color = WeUI.colors.success
 ) {
     val animatedProgress = animateFloatAsState(
         targetValue = progress,

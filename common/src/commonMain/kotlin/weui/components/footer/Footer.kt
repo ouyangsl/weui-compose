@@ -10,7 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 /**
  * 页脚
@@ -33,8 +33,8 @@ fun Footer(
                 for ((index, link) in links.withIndex()) {
                     BasicText(
                         text = link.first,
-                        style = WeUITheme.typography.desc.copy(
-                            color = WeUITheme.colors.link
+                        style = WeUI.typography.desc.copy(
+                            color = WeUI.colors.link
                         ),
                         modifier = Modifier.clickable(
                             interactionSource = remember { MutableInteractionSource() },
@@ -45,14 +45,14 @@ fun Footer(
                     )
 
                     if (index < links.lastIndex) {
-                        Box(modifier = Modifier.size(1.dp, 10.dp).background(WeUITheme.colors.divider))
+                        Box(modifier = Modifier.size(1.dp, 10.dp).background(WeUI.colors.divider))
                     }
                 }
             }
         }
 
         BasicText(
-            text = desc, style = WeUITheme.typography.desc
+            text = desc, style = WeUI.typography.desc
         )
     }
 }

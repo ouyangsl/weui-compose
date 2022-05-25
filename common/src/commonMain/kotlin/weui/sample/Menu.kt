@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 /**
  * 菜单项
@@ -163,7 +163,7 @@ private fun MenuGroup(
     val availableCount = menus.count { it.available }
 
     Column(
-        modifier = modifier.background(WeUITheme.colors.surface)
+        modifier = modifier.background(WeUI.colors.surface)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -193,14 +193,14 @@ private fun MenuGroup(
                 verticalArrangement = Arrangement.spacedBy(1.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(WeUITheme.colors.divider)
+                    .background(WeUI.colors.divider)
             ) {
                 for (menu in menus) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(WeUITheme.colors.surface)
+                            .background(WeUI.colors.surface)
                             .clickable { onMenuClick(menu) }
                             .padding(
                                 horizontal = 10.dp,
@@ -234,7 +234,7 @@ private fun Available(
     style = TextStyle(color = Color.White),
     modifier = modifier
         .background(
-            color = WeUITheme.colors.success,
+            color = WeUI.colors.success,
             shape = RoundedCornerShape(2.dp)
         )
         .padding(2.dp)

@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 /**
  * 面板
@@ -29,7 +29,7 @@ private fun Desc(
     modifier: Modifier = Modifier
 ) = BasicText(
     text = text,
-    style = WeUITheme.typography.desc,
+    style = WeUI.typography.desc,
     maxLines = 1,
     overflow = TextOverflow.Ellipsis,
     modifier = modifier
@@ -65,7 +65,7 @@ data class PanelFootnote(
 @Composable
 fun Panel(
     title: String,
-    titleStyle: TextStyle = WeUITheme.typography.title,
+    titleStyle: TextStyle = WeUI.typography.title,
     modifier: Modifier = Modifier,
     desc: String? = null,
     footnote: PanelFootnote? = null,
@@ -79,7 +79,7 @@ fun Panel(
 
     Box(
         modifier = Modifier
-            .background(WeUITheme.colors.surface)
+            .background(WeUI.colors.surface)
             .then(modifier)
             .clickable(
                 enabled = onClick != null && enabled,
@@ -146,7 +146,7 @@ fun Panel(
                     if (
                         footnote.remark.isNotBlank() && (footnote.source.isNotBlank() || footnote.time.isNotBlank())
                     ) {
-                        Box(modifier = Modifier.size(1.dp, 15.dp).background(WeUITheme.colors.divider))
+                        Box(modifier = Modifier.size(1.dp, 15.dp).background(WeUI.colors.divider))
                     }
 
                     if (footnote.remark.isNotBlank()) {
@@ -160,7 +160,7 @@ fun Panel(
             Box(
                 modifier = Modifier
                     .padding(start = PanelMargin)
-                    .background(WeUITheme.colors.divider)
+                    .background(WeUI.colors.divider)
                     .fillMaxWidth()
                     .height(1.dp)
                     .align(Alignment.BottomEnd)

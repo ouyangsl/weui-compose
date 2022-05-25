@@ -15,6 +15,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 @Composable
 fun App() {
@@ -26,7 +27,7 @@ fun App() {
     WeUITheme {
         Row(
             horizontalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier.background(WeUITheme.colors.background)
+            modifier = Modifier.background(WeUI.colors.background)
         ) {
             Column(
                 modifier = Modifier

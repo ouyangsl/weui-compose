@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.*
 import weui.components.button.Button
 import weui.components.button.ButtonStyle
 import weui.components.button.ButtonType
-import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 /**
  * 包含标题及内容的文本弹窗
@@ -59,7 +59,7 @@ fun MaskBox(
     content: @Composable BoxScope.() -> Unit
 ) = Box(
     contentAlignment = Alignment.Center,
-    modifier = modifier.background(WeUITheme.colors.mask),
+    modifier = modifier.background(WeUI.colors.mask),
     content = content
 )
 
@@ -75,7 +75,7 @@ private fun BasicDialogContent(
     content: @Composable ColumnScope.() -> Unit
 ) = Column(
     horizontalAlignment = Alignment.CenterHorizontally,
-    modifier = modifier.clip(WeUITheme.shapes.dialogCenter).width(320.dp).background(WeUITheme.colors.surface),
+    modifier = modifier.clip(WeUI.shapes.dialogCenter).width(320.dp).background(WeUI.colors.surface),
     content = content
 )
 
@@ -113,7 +113,7 @@ fun TextDialogContent(
 
         BasicText(
             text = content,
-            style = WeUITheme.typography.body,
+            style = WeUI.typography.body,
             modifier = Modifier.padding(
                 horizontal = 15.dp,
                 vertical = 18.dp
@@ -121,12 +121,12 @@ fun TextDialogContent(
         )
 
         Box(
-            modifier = Modifier.fillMaxWidth().height(1.dp).background(WeUITheme.colors.divider)
+            modifier = Modifier.fillMaxWidth().height(1.dp).background(WeUI.colors.divider)
         )
 
         Row(
             horizontalArrangement = Arrangement.spacedBy(1.dp),
-            modifier = Modifier.background(WeUITheme.colors.divider)
+            modifier = Modifier.background(WeUI.colors.divider)
         ) {
             Button(
                 text = defaultButton,
@@ -173,7 +173,7 @@ fun TextDialogContent(
         )
 
         Box(
-            modifier = Modifier.fillMaxWidth().height(1.dp).background(WeUITheme.colors.divider)
+            modifier = Modifier.fillMaxWidth().height(1.dp).background(WeUI.colors.divider)
         )
 
         Button(
@@ -192,6 +192,6 @@ private fun Title(
     modifier: Modifier = Modifier
 ) = BasicText(
     text = text,
-    style = WeUITheme.typography.title,
+    style = WeUI.typography.title,
     modifier = modifier
 )

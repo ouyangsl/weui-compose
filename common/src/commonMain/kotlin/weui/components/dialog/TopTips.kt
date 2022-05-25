@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import weui.CompactMaxWidth
-import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 /**
  * 顶部提示条
@@ -48,7 +48,7 @@ fun TopTipsContent(
             .sizeIn(maxWidth = CompactMaxWidth)
             .then(modifier)
             .clip(RoundedCornerShape(5.dp))
-            .background(WeUITheme.colors.error)
+            .background(WeUI.colors.error)
             .padding(
                 horizontal = 15.dp,
                 vertical = 10.dp
@@ -56,7 +56,7 @@ fun TopTipsContent(
     ) {
         BasicText(
             text = text,
-            style = WeUITheme.typography.title.copy(
+            style = WeUI.typography.title.copy(
                 color = Color.White
             )
         )

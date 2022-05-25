@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 /**
  * 按钮类型
@@ -64,8 +64,8 @@ fun Button(
 
     val backgroundColor = colors.backgroundColor(enabled).value
     val shape = when (type) {
-        ButtonType.Default -> WeUITheme.shapes.buttonDefault
-        ButtonType.Cell -> WeUITheme.shapes.buttonCell
+        ButtonType.Default -> WeUI.shapes.buttonDefault
+        ButtonType.Cell -> WeUI.shapes.buttonCell
     }
 
     Box(
@@ -89,7 +89,7 @@ fun Button(
 
             BasicText(
                 text = text,
-                style = WeUITheme.typography.button.copy(
+                style = WeUI.typography.button.copy(
                     color = colors.contentColor(enabled).value,
                     fontWeight = type.fontWeight
                 )

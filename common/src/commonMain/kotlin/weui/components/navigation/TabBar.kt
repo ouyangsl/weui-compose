@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 /**
  * TabBar: 表头样式的导航组件
@@ -23,7 +23,7 @@ fun TabBar(
     Row(
         horizontalArrangement = Arrangement.spacedBy(1.dp),
         modifier = modifier
-            .background(WeUITheme.colors.background)
+            .background(WeUI.colors.background)
             .padding(bottom = 1.dp)
     ) {
         for ((index, tab) in tabs.withIndex()) {
@@ -48,11 +48,11 @@ private fun TabItem(
     contentAlignment = Alignment.Center,
     modifier = modifier
         .clickable(onClick = onClick)
-        .background(if (isSelected) WeUITheme.colors.background else WeUITheme.colors.surface)
+        .background(if (isSelected) WeUI.colors.background else WeUI.colors.surface)
         .height(50.dp)
 ) {
     BasicText(
         text = title,
-        style = WeUITheme.typography.button
+        style = WeUI.typography.button
     )
 }

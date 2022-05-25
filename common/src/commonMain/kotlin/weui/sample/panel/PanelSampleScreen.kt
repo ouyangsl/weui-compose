@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import weui.components.panel.Panel
 import weui.components.panel.PanelFootnote
-import weui.theme.WeUITheme
+import weui.theme.WeUI
 
 @Composable
 fun PanelSampleScreen(
@@ -55,8 +55,8 @@ fun PanelSampleScreen(
 
             Panel(
                 title = "查看更多",
-                titleStyle = WeUITheme.typography.title.copy(
-                    color = WeUITheme.colors.link
+                titleStyle = WeUI.typography.title.copy(
+                    color = WeUI.colors.link
                 ),
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -88,8 +88,8 @@ fun PanelSampleScreen(
 
             Panel(
                 title = "查看更多",
-                titleStyle = WeUITheme.typography.title.copy(
-                    color = WeUITheme.colors.link
+                titleStyle = WeUI.typography.title.copy(
+                    color = WeUI.colors.link
                 ),
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -118,8 +118,8 @@ fun PanelSampleScreen(
 
             Panel(
                 title = "查看更多",
-                titleStyle = WeUITheme.typography.title.copy(
-                    color = WeUITheme.colors.link
+                titleStyle = WeUI.typography.title.copy(
+                    color = WeUI.colors.link
                 ),
                 modifier = Modifier.fillMaxWidth()
             ) {
