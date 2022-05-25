@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import weui.sample.badge.BadgeSampleScreen
 import weui.sample.button.ButtonSampleScreen
 import weui.sample.dialog.DialogSampleScreen
 import weui.sample.dialog.TopTipsSampleScreen
@@ -29,6 +30,7 @@ fun SampleScreen(
 
         when (menu) {
             Menu.Button -> ButtonSampleScreen(sampleModifier)
+            Menu.Badge -> BadgeSampleScreen(sampleModifier)
             Menu.Footer -> FooterSampleScreen(sampleModifier)
             Menu.Icons -> IconsSampleScreen(sampleModifier)
             Menu.Loading -> LoadingSampleScreen(sampleModifier)

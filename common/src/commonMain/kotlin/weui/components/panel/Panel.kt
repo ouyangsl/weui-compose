@@ -13,6 +13,9 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import weui.components.badge.Badge
+import weui.components.badge.BadgeState
+import weui.components.badge.BadgedBox
 import weui.icons.outlined.Arrow
 import weui.theme.WeUI
 
@@ -27,15 +30,28 @@ private val PanelMargin = 15.dp
 
 @Composable
 private fun Desc(
-    text: String,
+    text: String? = null,
+    badgeState: BadgeState? = null,
     modifier: Modifier = Modifier
-) = BasicText(
-    text = text,
-    style = WeUI.typography.desc,
-    maxLines = 1,
-    overflow = TextOverflow.Ellipsis,
+) = Row(
+    horizontalArrangement = Arrangement.spacedBy(5.dp),
+    verticalAlignment = Alignment.CenterVertically,
     modifier = modifier
-)
+) {
+    if (!text.isNullOrBlank()) {
+        BasicText(
+            text = text,
+            style = WeUI.typography.desc,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.weight(1f, false)
+        )
+    }
+
+    if (badgeState?.isPureTips == true) {
+        Badge(badgeState)
+    }
+}
 
 /**
  * 面板脚注
@@ -59,6 +75,7 @@ data class PanelFootnote(
  * @param desc 描述
  * @param footnote 脚注信息
  * @param icon 图片
+ * @param badgeState 徽章
  * @param isSingleLine 是否单行显示
  * @param isDividerVisible 是否显示底部分割线
  * @param isJumpVisible 是否在右侧显示跳转箭头
@@ -73,6 +90,7 @@ fun Panel(
     desc: String? = null,
     footnote: PanelFootnote? = null,
     icon: Painter? = null,
+    badgeState: BadgeState? = null,
     isSingleLine: Boolean = true,
     isDividerVisible: Boolean = false,
     isJumpVisible: Boolean = false,
@@ -94,14 +112,25 @@ fun Panel(
             modifier = Modifier.padding(PanelMargin)
         ) {
             Row(
-                horizontalArrangement = Arrangement.spacedBy(10.dp)
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 if (icon != null) {
-                    Image(
-                        painter = icon,
-                        contentDescription = null,
-                        modifier = Modifier.size(iconSize)
-                    )
+                    if (badgeState?.isPureTips == false) {
+                        BadgedBox(badgeState) {
+                            Image(
+                                painter = icon,
+                                contentDescription = null,
+                                modifier = Modifier.size(iconSize)
+                            )
+                        }
+                    } else {
+                        Image(
+                            painter = icon,
+                            contentDescription = null,
+                            modifier = Modifier.size(iconSize)
+                        )
+                    }
                 }
 
                 if (isSingleLine) {
@@ -110,23 +139,32 @@ fun Panel(
                         style = titleStyle
                     )
 
+                    if (icon == null && badgeState?.isPureTips == false) {
+                        Spacer(modifier = Modifier.width(5.dp))
+                        Badge(badgeState)
+                    }
+
                     Spacer(modifier = Modifier.weight(1f))
 
-                    if (!desc.isNullOrBlank()) {
-                        Desc(text = desc)
-                    }
+                    Desc(desc, badgeState)
                 } else {
                     Column(
                         modifier = Modifier.weight(1f)
                     ) {
-                        BasicText(
-                            text = title,
-                            style = titleStyle
-                        )
-
-                        if (!desc.isNullOrBlank()) {
-                            Desc(text = desc)
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(5.dp)
+                        ) {
+                            BasicText(
+                                text = title,
+                                style = titleStyle
+                            )
+                            if (icon == null && badgeState?.isPureTips == false) {
+                                Badge(badgeState)
+                            }
                         }
+
+                        Desc(desc, badgeState)
                     }
                 }
 

@@ -35,7 +35,7 @@ enum class Menu(
 
     // 基础组件
     Article(title = "文章", available = false),
-    Badge(title = "徽章", available = false),
+    Badge(title = "徽章", available = true),
     Flex(title = "Flex布局", available = false),
     Footer(title = "页脚", available = true),
     Gallery(title = "图册", available = false),
