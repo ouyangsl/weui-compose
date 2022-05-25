@@ -9,9 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import weui.icons.outlined.Arrow
 import weui.theme.WeUI
 
 /**
@@ -59,6 +61,7 @@ data class PanelFootnote(
  * @param icon 图片
  * @param isSingleLine 是否单行显示
  * @param isDividerVisible 是否显示底部分割线
+ * @param isJumpVisible 是否在右侧显示跳转箭头
  * @param enabled 是否启用点击事件
  * @param onClick 点击事件回调
  */
@@ -72,6 +75,7 @@ fun Panel(
     icon: Painter? = null,
     isSingleLine: Boolean = true,
     isDividerVisible: Boolean = false,
+    isJumpVisible: Boolean = false,
     enabled: Boolean = true,
     onClick: (() -> Unit)? = null,
 ) {
@@ -126,7 +130,13 @@ fun Panel(
                     }
                 }
 
-                // TODO: 2022/5/24 最后是否显示箭头
+                if (isJumpVisible) {
+                    Image(
+                        painter = rememberVectorPainter(WeUI.Icons.Outlined.Arrow),
+                        contentDescription = null,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
             }
 
             if (footnote != null) {
