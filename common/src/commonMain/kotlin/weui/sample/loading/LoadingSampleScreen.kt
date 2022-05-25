@@ -8,16 +8,14 @@ import androidx.compose.ui.unit.dp
 import weui.components.loading.Loading
 
 @Composable
-fun LoadingSampleScreen(
-    modifier: Modifier = Modifier
-) {
+fun LoadingSampleScreen() {
     Column(
         verticalArrangement = Arrangement.spacedBy(
             space = 50.dp,
             alignment = Alignment.CenterVertically
         ),
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
+        modifier = Modifier.fillMaxSize()
     ) {
         Loading(modifier = Modifier.size(24.dp))
         Loading(modifier = Modifier.size(48.dp))

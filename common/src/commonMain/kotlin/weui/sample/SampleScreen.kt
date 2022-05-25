@@ -1,11 +1,16 @@
 package weui.sample
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
+import weui.core.LocalWindowSizeClasses
+import weui.core.WindowSizeClasses
+import weui.icons.filled.Back
 import weui.sample.badge.BadgeSampleScreen
 import weui.sample.button.ButtonSampleScreen
 import weui.sample.dialog.DialogSampleScreen
@@ -17,6 +22,7 @@ import weui.sample.navigation.NavBarSampleScreen
 import weui.sample.navigation.TabBarSampleScreen
 import weui.sample.panel.PanelSampleScreen
 import weui.sample.progress.ProgressSampleScreen
+import weui.theme.WeUI
 
 /**
  * 根据不同的菜单项，显示不同的 Sample
@@ -24,39 +30,53 @@ import weui.sample.progress.ProgressSampleScreen
 @Composable
 fun SampleScreen(
     menu: Menu?,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClickBack: () -> Unit = {}
 ) {
-    Box(modifier = modifier.padding(16.dp)) {
-        val sampleModifier = Modifier.fillMaxSize()
+    val mode = LocalWindowSizeClasses.current
 
-        when (menu) {
-            Menu.Button -> ButtonSampleScreen(sampleModifier)
-            Menu.Badge -> BadgeSampleScreen(sampleModifier)
-            Menu.Footer -> FooterSampleScreen(sampleModifier)
-            Menu.Icons -> IconsSampleScreen(sampleModifier)
-            Menu.Loading -> LoadingSampleScreen(sampleModifier)
-            Menu.Panel -> PanelSampleScreen(sampleModifier)
-            Menu.Progress -> ProgressSampleScreen(sampleModifier)
-            Menu.Dialog -> DialogSampleScreen(sampleModifier)
-            Menu.TopTips -> TopTipsSampleScreen(sampleModifier)
-            Menu.TabBar -> TabBarSampleScreen(sampleModifier)
-            Menu.NavBar -> NavBarSampleScreen(sampleModifier)
-            null -> NullSampleScreen(sampleModifier)
-            else -> NotAvailableSampleScreen(sampleModifier)
+    Column(
+        modifier = modifier.fillMaxWidth()
+    ) {
+        if (mode == WindowSizeClasses.Compact) {
+            Image(
+                painter = rememberVectorPainter(WeUI.Icons.Filled.Back),
+                contentDescription = null,
+                modifier = Modifier.size(24.dp).clickable(
+                    onClick = onClickBack
+                )
+            )
+        }
+
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = modifier.fillMaxWidth().weight(1f)
+        ) {
+            when (menu) {
+                Menu.Button -> ButtonSampleScreen()
+                Menu.Badge -> BadgeSampleScreen()
+                Menu.Footer -> FooterSampleScreen()
+                Menu.Icons -> IconsSampleScreen()
+                Menu.Loading -> LoadingSampleScreen()
+                Menu.Panel -> PanelSampleScreen()
+                Menu.Progress -> ProgressSampleScreen()
+                Menu.Dialog -> DialogSampleScreen()
+                Menu.TopTips -> TopTipsSampleScreen()
+                Menu.TabBar -> TabBarSampleScreen()
+                Menu.NavBar -> NavBarSampleScreen()
+                null -> NullSampleScreen()
+                else -> NotAvailableSampleScreen()
+            }
         }
     }
 }
 
 @Composable
-private fun NullSampleScreen(
-    modifier: Modifier = Modifier
-) {
+private fun NullSampleScreen() {
 
 }
 
 @Composable
-private fun NotAvailableSampleScreen(
-    modifier: Modifier = Modifier
-) {
+private fun NotAvailableSampleScreen() {
 
 }

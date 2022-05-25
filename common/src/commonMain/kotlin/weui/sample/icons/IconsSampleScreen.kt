@@ -189,15 +189,13 @@ val OutlinedIcons = listOf(
 )
 
 @Composable
-fun IconsSampleScreen(
-    modifier: Modifier = Modifier
-) {
+fun IconsSampleScreen() {
     var selected by remember { mutableStateOf(0) }
     val tabs = listOf(
         "Default", "Filled", "Outlined"
     )
 
-    Column(modifier = modifier) {
+    Column(modifier = Modifier.fillMaxSize()) {
         TabBar(
             selected = selected, tabs = tabs, modifier = Modifier.fillMaxWidth()
         ) {

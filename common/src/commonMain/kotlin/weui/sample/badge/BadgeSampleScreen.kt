@@ -20,9 +20,7 @@ import weui.icons.filled.QrCode
 import weui.theme.WeUI
 
 @Composable
-fun BadgeSampleScreen(
-    modifier: Modifier = Modifier
-) {
+fun BadgeSampleScreen() {
     var state0 by rememberBadgeState(text = "")
     var state1 by rememberBadgeState(text = "1")
     var state2 by rememberBadgeState(text = "8")
@@ -36,7 +34,7 @@ fun BadgeSampleScreen(
             alignment = Alignment.CenterVertically
         ),
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.verticalScroll(rememberScrollState())
+        modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
     ) {
         Button("切换状态") {
             state0 = state0.copy(visible = !state0.visible)

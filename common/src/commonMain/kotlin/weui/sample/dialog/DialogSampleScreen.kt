@@ -2,6 +2,7 @@ package weui.sample.dialog
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -10,7 +11,7 @@ import weui.components.button.Button
 import weui.components.dialog.TextDialog
 
 @Composable
-fun DialogSampleScreen(modifier: Modifier = Modifier) {
+fun DialogSampleScreen() {
     var isShowStyle1 by remember { mutableStateOf(false) }
     var isShowStyle2 by remember { mutableStateOf(false) }
 
@@ -20,7 +21,7 @@ fun DialogSampleScreen(modifier: Modifier = Modifier) {
             alignment = Alignment.CenterVertically
         ),
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
+        modifier = Modifier.fillMaxSize()
     ) {
         Button(text = "Dialog 样式一") {
             isShowStyle1 = true

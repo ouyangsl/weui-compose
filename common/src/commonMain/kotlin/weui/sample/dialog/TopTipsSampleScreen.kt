@@ -2,6 +2,7 @@ package weui.sample.dialog
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -11,7 +12,7 @@ import weui.components.button.Button
 import weui.components.dialog.TopTips
 
 @Composable
-fun TopTipsSampleScreen(modifier: Modifier = Modifier) {
+fun TopTipsSampleScreen() {
     var isShow by remember { mutableStateOf(false) }
     var isAutoDismiss by remember { mutableStateOf(false) }
 
@@ -30,7 +31,7 @@ fun TopTipsSampleScreen(modifier: Modifier = Modifier) {
             alignment = Alignment.CenterVertically
         ),
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
+        modifier = Modifier.fillMaxSize()
     ) {
         Button(text = "显示提示条") {
             isShow = true

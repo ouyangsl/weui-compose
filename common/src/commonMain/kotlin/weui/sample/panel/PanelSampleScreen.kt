@@ -2,6 +2,7 @@ package weui.sample.panel
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -16,16 +17,14 @@ import weui.icons.filled.QrCode
 import weui.theme.WeUI
 
 @Composable
-fun PanelSampleScreen(
-    modifier: Modifier = Modifier
-) {
+fun PanelSampleScreen() {
     Column(
         verticalArrangement = Arrangement.spacedBy(
             space = 15.dp,
             alignment = Alignment.CenterVertically
         ),
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.verticalScroll(rememberScrollState())
+        modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
     ) {
         Column {
             Panel(

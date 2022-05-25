@@ -22,9 +22,7 @@ import weui.icons.filled.Me
 import weui.theme.WeUI
 
 @Composable
-fun NavBarSampleScreen(
-    modifier: Modifier = Modifier
-) {
+fun NavBarSampleScreen() {
     var selected by remember { mutableStateOf(0) }
     val titles = listOf(
         "通讯录", "发现", "我"
@@ -37,7 +35,7 @@ fun NavBarSampleScreen(
 
     val badgeState by rememberBadgeState(visible = true, text = "New")
 
-    Column(modifier = modifier) {
+    Column(modifier = Modifier.fillMaxSize()) {
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxWidth().weight(1f)

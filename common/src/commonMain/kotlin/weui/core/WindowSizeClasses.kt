@@ -1,5 +1,6 @@
 package weui.core
 
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.unit.dp
 
 /**
@@ -20,3 +21,5 @@ val CompactMaxWidth = 600.dp
  * 中等宽度设备[WindowSizeClasses.Medium] 的最大宽度
  */
 val MediumMaxWidth = 840.dp
+
+val LocalWindowSizeClasses = staticCompositionLocalOf { WindowSizeClasses.Compact }

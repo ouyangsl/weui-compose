@@ -1,9 +1,6 @@
 package weui.sample.progress
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -13,9 +10,7 @@ import weui.components.button.Button
 import weui.components.progress.Progress
 
 @Composable
-fun ProgressSampleScreen(
-    modifier: Modifier = Modifier
-) {
+fun ProgressSampleScreen() {
     var progress by remember { mutableStateOf(0.3f) }
 
     Column(
@@ -24,7 +19,7 @@ fun ProgressSampleScreen(
             alignment = Alignment.CenterVertically
         ),
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
+        modifier = Modifier.fillMaxSize()
     ) {
         BasicText(text = "Progress: $progress")
 

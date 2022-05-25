@@ -2,6 +2,7 @@ package weui.sample.footer
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -11,9 +12,7 @@ import weui.components.dialog.TopTips
 import weui.components.footer.Footer
 
 @Composable
-fun FooterSampleScreen(
-    modifier: Modifier = Modifier
-) {
+fun FooterSampleScreen() {
     var isShowTips by remember { mutableStateOf(false) }
     var tips by remember { mutableStateOf("") }
 
@@ -38,7 +37,7 @@ fun FooterSampleScreen(
             alignment = Alignment.CenterVertically
         ),
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
+        modifier = Modifier.fillMaxSize()
     ) {
         Footer(desc = desc)
 
