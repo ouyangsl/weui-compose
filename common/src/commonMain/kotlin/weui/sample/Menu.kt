@@ -36,9 +36,11 @@ enum class Menu(
     // 基础组件
     Article(title = "文章", available = true),
     Badge(title = "徽章", available = true),
-//    Flex(title = "Flex布局", available = false),
+
+    //    Flex(title = "Flex布局", available = false),
     Footer(title = "页脚", available = true),
-//    Gallery(title = "图册", available = false),
+
+    //    Gallery(title = "图册", available = false),
 //    Grid(title = "九宫格", available = false),
     Icons(title = "图标", available = true),
     Loading(title = "加载中", available = true),
@@ -58,6 +60,7 @@ enum class Menu(
     TopTips(title = "顶部提示条", available = true),
 
     // 导航相关
+    TopBar(title = "顶部导航条", available = true),
     NavBar(title = "底部导航条", available = true),
     TabBar(title = "表头导航条", available = true),
 
@@ -104,6 +107,7 @@ private val MenuGroups = mapOf(
         Menu.TopTips
     ),
     "导航相关" to listOf(
+        Menu.TopBar,
         Menu.NavBar,
         Menu.TabBar
     ),

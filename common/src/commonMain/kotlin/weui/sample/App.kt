@@ -19,7 +19,7 @@ import weui.theme.WeUI
 @Composable
 fun App() {
 //    var selected by remember { mutableStateOf<Menu?>(null) }
-    var selected by remember { mutableStateOf<Menu?>(Menu.Article) }
+    var selected by remember { mutableStateOf<Menu?>(Menu.TopBar) }
 
     WeUITheme {
         when (LocalWindowSizeClasses.current) {

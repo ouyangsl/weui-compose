@@ -22,6 +22,7 @@ import weui.sample.loading.LoadMoreSampleScreen
 import weui.sample.loading.LoadingSampleScreen
 import weui.sample.navigation.NavBarSampleScreen
 import weui.sample.navigation.TabBarSampleScreen
+import weui.sample.navigation.TopBarSampleScreen
 import weui.sample.panel.PanelSampleScreen
 import weui.sample.progress.ProgressSampleScreen
 import weui.theme.WeUI
@@ -66,8 +67,9 @@ fun SampleScreen(
                 Menu.Progress -> ProgressSampleScreen()
                 Menu.Dialog -> DialogSampleScreen()
                 Menu.TopTips -> TopTipsSampleScreen()
-                Menu.TabBar -> TabBarSampleScreen()
+                Menu.TopBar -> TopBarSampleScreen()
                 Menu.NavBar -> NavBarSampleScreen()
+                Menu.TabBar -> TabBarSampleScreen()
                 null -> NullSampleScreen()
                 else -> NotAvailableSampleScreen()
             }
