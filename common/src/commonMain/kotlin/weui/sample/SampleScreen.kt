@@ -17,6 +17,7 @@ import weui.sample.dialog.DialogSampleScreen
 import weui.sample.dialog.TopTipsSampleScreen
 import weui.sample.footer.FooterSampleScreen
 import weui.sample.icons.IconsSampleScreen
+import weui.sample.loading.LoadMoreSampleScreen
 import weui.sample.loading.LoadingSampleScreen
 import weui.sample.navigation.NavBarSampleScreen
 import weui.sample.navigation.TabBarSampleScreen
@@ -58,6 +59,7 @@ fun SampleScreen(
                 Menu.Footer -> FooterSampleScreen()
                 Menu.Icons -> IconsSampleScreen()
                 Menu.Loading -> LoadingSampleScreen()
+                Menu.LoadMore -> LoadMoreSampleScreen()
                 Menu.Panel -> PanelSampleScreen()
                 Menu.Progress -> ProgressSampleScreen()
                 Menu.Dialog -> DialogSampleScreen()
