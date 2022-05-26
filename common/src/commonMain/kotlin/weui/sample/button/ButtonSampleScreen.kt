@@ -1,11 +1,14 @@
 package weui.sample.button
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import weui.components.button.*
+import weui.sample.SampleScreenMargin
 
 /**
  * 按钮 Sample
@@ -17,6 +20,8 @@ fun ButtonSampleScreen(
         verticalArrangement = Arrangement.spacedBy(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(vertical = SampleScreenMargin)
     ) {
         Button(
             text = "主要操作",

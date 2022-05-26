@@ -6,7 +6,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import weui.components.loading.LoadMore
-import weui.components.loading.Loading
+import weui.sample.SampleScreenMargin
 
 @Composable
 fun LoadMoreSampleScreen() {
@@ -16,7 +16,7 @@ fun LoadMoreSampleScreen() {
             alignment = Alignment.CenterVertically
         ),
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize().padding(SampleScreenMargin)
     ) {
         LoadMore(
             isLoading = true,

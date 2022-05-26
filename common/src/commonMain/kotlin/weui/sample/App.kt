@@ -25,22 +25,19 @@ fun App() {
         when (LocalWindowSizeClasses.current) {
             WindowSizeClasses.Compact -> {
                 Box {
-                    SampleMenu(
-                        modifier = Modifier.fillMaxSize().padding(16.dp)
-                    ) {
+                    SampleMenu(modifier = Modifier.fillMaxSize()) {
                         selected = it
                     }
 
                     AnimatedVisibility(
                         visible = selected != null,
-                        enter = fadeIn() + expandIn(expandFrom = Alignment.TopCenter),
+                        enter = fadeIn() + expandIn(expandFrom = Alignment.TopStart),
                         exit = shrinkOut(shrinkTowards = Alignment.TopCenter) + fadeOut(),
                         modifier = Modifier.fillMaxSize()
                     ) {
                         SampleScreen(
                             menu = selected,
                             modifier = Modifier.fillMaxSize().background(WeUI.colors.background)
-                                .padding(16.dp)
                         ) {
                             selected = null
                         }
@@ -50,10 +47,7 @@ fun App() {
             else -> {
                 Row(modifier = Modifier.background(WeUI.colors.background)) {
                     SampleMenu(
-                        modifier = Modifier
-                            .width(200.dp)
-                            .fillMaxHeight()
-                            .padding(10.dp)
+                        modifier = Modifier.width(200.dp).fillMaxHeight()
                     ) {
                         selected = it
                     }
@@ -63,7 +57,6 @@ fun App() {
                         modifier = Modifier
                             .weight(1f)
                             .fillMaxHeight()
-                            .padding(10.dp)
                     )
                 }
             }

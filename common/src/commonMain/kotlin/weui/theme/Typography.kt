@@ -39,7 +39,7 @@ private val DefaultLightTypography = Typography(
     ),
     subtitle = TextStyle(
         color = Color.Black.copy(alpha = 0.5f),
-        fontSize = 17.sp,
+        fontSize = 12.sp,
         fontWeight = FontWeight.W400,
         lineHeight = 23.8.sp
     ),

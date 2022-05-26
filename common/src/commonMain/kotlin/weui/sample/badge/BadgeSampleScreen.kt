@@ -17,6 +17,7 @@ import weui.components.button.Button
 import weui.components.panel.Panel
 import weui.components.panel.PanelFootnote
 import weui.icons.filled.QrCode
+import weui.sample.SampleScreenMargin
 import weui.theme.WeUI
 
 @Composable
@@ -34,7 +35,10 @@ fun BadgeSampleScreen() {
             alignment = Alignment.CenterVertically
         ),
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(SampleScreenMargin)
     ) {
         Button("切换状态") {
             state0 = state0.copy(visible = !state0.visible)
@@ -227,7 +231,6 @@ fun BadgeSampleScreen() {
                     remark = "其他信息"
                 ),
                 isSingleLine = false,
-                isDividerVisible = true,
                 modifier = Modifier.fillMaxWidth(),
             )
         }

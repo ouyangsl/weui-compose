@@ -11,6 +11,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import kotlinx.coroutines.delay
 import weui.components.article.*
 import weui.components.dialog.TopTips
+import weui.sample.SampleScreenMargin
 
 private const val LinkTag = "tag"
 
@@ -47,7 +48,9 @@ fun ArticleSampleScreen() {
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
+        modifier = Modifier.fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(SampleScreenMargin)
     ) {
         ClickableText(
             text = article,

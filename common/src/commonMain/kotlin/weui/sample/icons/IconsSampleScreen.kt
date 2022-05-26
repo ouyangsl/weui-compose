@@ -18,6 +18,7 @@ import weui.components.navigation.TabBar
 import weui.icons.default.*
 import weui.icons.filled.*
 import weui.icons.outlined.*
+import weui.sample.SampleScreenMargin
 import weui.theme.WeUI
 
 val FilledIcons = listOf(
@@ -202,7 +203,7 @@ fun IconsSampleScreen() {
             selected = it
         }
 
-        Box(modifier = Modifier.fillMaxWidth().weight(1f).padding(10.dp)) {
+        Box(modifier = Modifier.fillMaxWidth().weight(1f).padding(SampleScreenMargin)) {
             when (selected) {
                 0 -> DefaultScreen()
                 1 -> FilledScreen()
@@ -250,7 +251,9 @@ private fun Icon(
         horizontalAlignment = Alignment.CenterHorizontally, modifier = modifier.padding(5.dp)
     ) {
         Image(
-            painter = rememberVectorPainter(icon), contentDescription = null, modifier = Modifier.size(24.dp)
+            painter = rememberVectorPainter(icon),
+            contentDescription = null,
+            modifier = Modifier.size(24.dp)
         )
 
         BasicText(

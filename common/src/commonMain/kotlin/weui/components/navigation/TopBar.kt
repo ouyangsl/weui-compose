@@ -25,6 +25,7 @@ private val TopBarHeight = 44.dp
 @Composable
 fun TopBar(
     title: String,
+    subtitle: String? = null,
     start: @Composable () -> Unit = {},
     end: @Composable () -> Unit = {},
     modifier: Modifier = Modifier
@@ -37,11 +38,23 @@ fun TopBar(
 ) {
     Box(modifier = Modifier.align(Alignment.CenterStart)) { start() }
 
-    BasicText(
-        text = title,
-        style = WeUI.typography.title,
+    Column(
+        verticalArrangement = Arrangement.aligned(Alignment.CenterVertically),
+        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.align(Alignment.Center)
-    )
+    ) {
+        BasicText(
+            text = title,
+            style = WeUI.typography.title
+        )
+
+        if (!subtitle.isNullOrBlank()) {
+            BasicText(
+                text = subtitle,
+                style = WeUI.typography.subtitle
+            )
+        }
+    }
 
     Box(modifier = Modifier.align(Alignment.CenterEnd)) { end() }
 }

@@ -1,16 +1,16 @@
 package weui.sample
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
+import weui.components.navigation.TopBar
+import weui.components.navigation.TopBarIcon
 import weui.core.LocalWindowSizeClasses
 import weui.core.WindowSizeClasses
-import weui.icons.filled.Back
+import weui.icons.outlined.Back
 import weui.sample.article.ArticleSampleScreen
 import weui.sample.badge.BadgeSampleScreen
 import weui.sample.button.ButtonSampleScreen
@@ -27,6 +27,8 @@ import weui.sample.panel.PanelSampleScreen
 import weui.sample.progress.ProgressSampleScreen
 import weui.theme.WeUI
 
+val SampleScreenMargin = 16.dp
+
 /**
  * 根据不同的菜单项，显示不同的 Sample
  */
@@ -39,16 +41,25 @@ fun SampleScreen(
     val mode = LocalWindowSizeClasses.current
 
     Column(
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth().pointerInput(Unit) {}
     ) {
         if (mode == WindowSizeClasses.Compact) {
-            Image(
-                painter = rememberVectorPainter(WeUI.Icons.Filled.Back),
-                contentDescription = null,
-                modifier = Modifier.size(24.dp).clickable(
-                    onClick = onClickBack
+            Row {
+                val title = menu?.name ?: ""
+                val subtitle = menu?.title ?: ""
+
+                TopBar(
+                    title = title,
+                    subtitle = subtitle,
+                    start = {
+                        TopBarIcon(
+                            icon = WeUI.Icons.Outlined.Back,
+                            onClick = onClickBack
+                        )
+                    },
+                    modifier = Modifier.fillMaxWidth()
                 )
-            )
+            }
         }
 
         Box(
