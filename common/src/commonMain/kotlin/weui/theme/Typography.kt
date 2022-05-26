@@ -4,6 +4,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 
 /**
@@ -17,6 +18,7 @@ data class Typography(
     val body: TextStyle,
     val content: TextStyle,
     val button: TextStyle,
+    val link: TextStyle,
     val desc: TextStyle,
     val caption: TextStyle
 )
@@ -26,7 +28,8 @@ private val DefaultLightTypography = Typography(
         color = Color.Black.copy(alpha = 0.9f),
         fontSize = 22.sp,
         fontWeight = FontWeight.W500,
-        lineHeight = 30.8.sp
+        lineHeight = 30.8.sp,
+        textAlign = TextAlign.Center
     ),
     title = TextStyle(
         color = Color.Black.copy(alpha = 0.9f),
@@ -53,6 +56,11 @@ private val DefaultLightTypography = Typography(
         lineHeight = 27.2.sp
     ),
     button = TextStyle(
+        fontSize = 17.sp,
+        fontWeight = FontWeight.W500,
+    ),
+    link = TextStyle(
+        color = Color(0xFF576B95),
         fontSize = 17.sp,
         fontWeight = FontWeight.W500,
     ),

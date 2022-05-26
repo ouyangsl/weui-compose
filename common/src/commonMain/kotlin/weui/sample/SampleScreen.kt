@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import weui.core.LocalWindowSizeClasses
 import weui.core.WindowSizeClasses
 import weui.icons.filled.Back
+import weui.sample.article.ArticleSampleScreen
 import weui.sample.badge.BadgeSampleScreen
 import weui.sample.button.ButtonSampleScreen
 import weui.sample.dialog.DialogSampleScreen
@@ -55,6 +56,7 @@ fun SampleScreen(
         ) {
             when (menu) {
                 Menu.Button -> ButtonSampleScreen()
+                Menu.Article -> ArticleSampleScreen()
                 Menu.Badge -> BadgeSampleScreen()
                 Menu.Footer -> FooterSampleScreen()
                 Menu.Icons -> IconsSampleScreen()

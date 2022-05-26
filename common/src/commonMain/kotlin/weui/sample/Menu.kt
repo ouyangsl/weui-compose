@@ -34,7 +34,7 @@ enum class Menu(
 //    Uploader(title = "上传组件", available = false),
 
     // 基础组件
-    Article(title = "文章", available = false),
+    Article(title = "文章", available = true),
     Badge(title = "徽章", available = true),
 //    Flex(title = "Flex布局", available = false),
     Footer(title = "页脚", available = true),
