@@ -30,7 +30,7 @@
 ![android-8](imgs/android-8.png)
 ![android-9](imgs/android-9.png)
 
-# Thanks:
+# Thanks
 
 [Compose Multiplatform](https://github.com/JetBrains/compose-jb)
 跨平台的 Compose 实现，提供了 Windows、macOs、Linux 端的 Compose 框架
